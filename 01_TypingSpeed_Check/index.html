@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet"/>
+
+    <title>TypingSpeed</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="./styles/index.css">
+
+    <script type="module" src="./scripts/main.js" defer></script>
+
+    <link rel="icon" type="image/x-icon" href="./assets/favicon.png">
+
+
+</head>
+
+<body class="body min-h-[100vh] flex justify-center m-0">
+    <div class="page basis-[1280px]">
+
+        <!-- Header section  -->
+        <header class="header page__header m-[30px_40px_85px_40px]">
+            <nav class="nav flex justify-between font-medium text-white">
+                <div class="nav__logo flex center gap-2.5">
+                    <img class="nav__keyboard h-[40px] w-[45px]" src="./assets/keyboard.svg" alt="Keyboard Icon"/>
+                    <h1 class="nav__name text-3xl m-0">Type-o-Meter</h1>
+                </div>
+
+                <img src="./assets/" alt="">
+            </nav>
+        </header>
+
+        <!-- Main section -->
+        <main class="main page__main flex flex-col items-center gap-y-8 m-[0px_40px_30px_40px]">
+            <section class="tiles w-full flex justify-center gap-x-8">
+                <div class="tile tile_wpm basis-[280px] box-border h-[60px] rounded-2xl p-[34px_30px_34px_30px] bg-[rgba(255,255,255,0.9)] flex items-center justify-between font-medium opacity-0 scale-[0.9] transition-all duration-200" data-tile="wpm">
+                    <h2 class="tile__heading text-[16px] m-0 font-semibold">Words Per Minute</h2>
+                    <span class="tile__value text-3xl">42</span>
+                </div>
+
+                <div class="tile tile_accuracy  basis-[280px] box-border h-[60px] rounded-2xl p-[34px_30px_34px_30px] bg-[rgba(255,255,255,0.9)] flex items-center justify-between font-medium opacity-0 scale-[0.9] transition-all duration-200" data-tile="accuracy">
+                    <h2 class="tile__heading text-[16px] m-0 font-semibold">Accuracy</h2>
+                    <span class="tile__value text-3xl">87%</span>
+                </div>
+
+                <div class="tile tile_time-remaining  basis-[280px] box-border h-[60px] rounded-2xl p-[34px_30px_34px_30px] bg-[rgba(255,255,255,0.9)] flex items-center justify-between font-medium opacity-0 scale-[0.9] transition-all duration-200" data-tile="time">
+                    <h2 class="tile__heading text-[16px] m-0 font-semibold">Time</h2>
+                    <span class="tile__value text-3xl">52s</span>
+                </div>
+            </section>
+
+
+            <section class="text-area w-full flex justify-center">
+                <input type="text" class="text-area__input top-0 left-0 fixed"/>
+                    <div class="text-area__wrapper basis-[900px] box-border bg-[rgba(255,255,255,0.9)] rounded-2xl">
+                        <div class="text-area__text p-[23px] box-border w-full h-full"></div>
+                    </div>
+            </section>
+
+
+            <section class="keyboard-area">
+                <div class="keyboard flex flex-col items-center gap-y-1.5">
+                    <div class="keyboard__row flex gap-x-1.5">
+                        <div id="q" class="key"><span class="key__text">q</span></div>
+                        <div id="w" class="key"><span class="key__text">w</span></div>
+                        <div id="e" class="key"><span class="key__text">e</span></div>
+                        <div id="r" class="key"><span class="key__text">r</span></div>
+                        <div id="t" class="key"><span class="key__text">t</span></div>
+                        <div id="y" class="key"><span class="key__text">y</span></div>
+                        <div id="u" class="key"><span class="key__text">u</span></div>
+                        <div id="i" class="key"><span class="key__text">i</span></div>
+                        <div id="o" class="key"><span class="key__text">o</span></div>
+                        <div id="p" class="key"><span class="key__text">p</span></div>
+                        <div id="[" class="key"><span class="key__text">[</span></div>
+                        <div id="]" class="key"><span class="key__text">]</span></div>
+                    </div>
+
+                    <div class="keyboard__row flex gap-x-1.5">
+                        <div id="a" class="key"><span class="key__text">a</span></div>
+                        <div id="s" class="key"><span class="key__text">s</span></div>
+                        <div id="d" class="key"><span class="key__text">d</span></div>
+                        <div id="f" class="key"><span class="key__text">f</span></div>
+                        <div id="g" class="key"><span class="key__text">g</span></div>
+                        <div id="h" class="key"><span class="key__text">h</span></div>
+                        <div id="j" class="key"><span class="key__text">j</span></div>
+                        <div id="k" class="key"><span class="key__text">k</span></div>
+                        <div id="l" class="key"><span class="key__text">l</span></div>
+                        <div id=";" class="key"><span class="key__text">;</span></div>
+                        <div id="'" class="key"><span class="key__text">'</span></div>
+                    </div>
+
+                    <div class="keyboard__row flex gap-x-1.5">
+                        <div id="z" class="key"><span class="key__text">z</span></div>
+                        <div id="x" class="key"><span class="key__text">x</span></div>
+                        <div id="c" class="key"><span class="key__text">c</span></div>
+                        <div id="v" class="key"><span class="key__text">v</span></div>
+                        <div id="b" class="key"><span class="key__text">b</span></div>
+                        <div id="n" class="key"><span class="key__text">n</span></div>
+                        <div id="m" class="key"><span class="key__text">m</span></div>
+                        <div id="," class="key"><span class="key__text">,</span></div>
+                        <div id="." class="key"><span class="key__text">.</span></div>
+                        <div id="/" class="key"><span class="key__text">/</span></div>
+                    </div>
+
+                    <div class="keyboard__row flex gap-x-1.5">
+                        <div id="space" class="key key_space">
+                            <span class="key__text">space</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer section -->
+        <footer class="footer flex justify-center m-[0px_0px_30px_0px]">
+            <button class="reset footer__reset w-[25px] h-[25px] bg-transparent border-none opacity-[0.9]"></button>
+        </footer>
+    </div>
+
+        <template id="word-template">
+        <div class="word inline-block mx-1.5 my-0 font-medium"></div>
+        </template>
+
+        <template id="letter-template">
+        <span class="letter"></span>
+        </template>
+
+        <template id="cursor-template">
+        <span class="letter__cursor"></span>
+        </template>
+
+</body>
+</html>
