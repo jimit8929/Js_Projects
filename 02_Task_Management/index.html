@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="../02_Task_Management/styles/index.css" />
+</head>
+
+<body class="bg-bg-primary min-h-screen p-4">
+    <div class="container mx-auto max-w-7xl flex h-[100vh] text-[12px]">
+        <div class="sidebar w-[240px] p-5 border-r border-border-color transition-all duration-200 ease-in-out overflow-hidden relative bg-bg-secondary">
+            <!-- Logo Section -->
+            <div class="logo-menu-container flex items-center justify-between mb-6">
+                <div class="logo-container flex items-center">
+                    <img src="./assets/board.png" alt="Kanban Board Logo" class="logo w-5 h-5 mr-2" />
+                    <p class="text-sm font-semibold text-text-primary">Kanban Board</p>
+                </div>
+                <button id="sidebarToggle" class="transition-transform z-10">
+                    <img src="./assets/menus.png" alt="Menu Options" class="transition-transform w-5 h-5 cursor-pointer object-contain" id="toggleIcon" />
+                </button>
+            </div>
+            <!-- Navigation Menu -->
+            <nav class="side-menu space-y-3">
+                <!-- Main Menu Items -->
+                <div class="menu-item flex items-center p-2 rounded-lg hover:bg-gray-50 transition-colors">
+                    <img src="./assets/home.png" alt="Home" class="icon w-5 h-5 mr-3" />
+                    <p class="title text-sm text-text-primary">Home</p>
+                </div>
+                <div class="menu-item flex items-center p-2 rounded-lg hover:bg-gray-50 transition-colors">
+                    <img src="./assets/checklist.png" alt="Tasks" class="icon w-5 h-5 mr-3" />
+                    <p class="title text-sm text-text-primary">My Tasks</p>
+                </div>
+                <div class="menu-item flex items-center p-2 rounded-lg hover:bg-gray-50 transition-colors">
+                    <img src="./assets/inbox.png" alt="Inbox" class="icon w-5 h-5 mr-3" />
+                    <p class="title text-sm text-text-primary">Inbox</p>
+                </div>
+                <!-- Reporting Section -->
+                <div class="mt-4">
+                    <p class="menu-title text-xs font-semibold text-gray-500 uppercase tracking-wide mb-2">Reporting</p>
+                    <div class="menu-item flex items-center p-2 rounded-lg hover:bg-gray-50 transition-colors">
+                        <img src="./assets/portfolio.png" alt="Portfolio" class="icon w-5 h-5 mr-3" />
+                        <p class="title text-sm text-text-primary">Portfolio</p>
+                    </div>
+                    <div class="menu-item flex items-center p-2 rounded-lg hover:bg-gray-50 transition-colors">
+                        <img src="./assets/Goals.png" alt="Goals" class="icon w-5 h-5 mr-3" />
+                        <p class="title text-sm text-text-primary">Goals</p>
+                    </div>
+                </div>
+                <!-- Favorites Section -->
+                <div class="mt-4">
+                    <p class="menu-title text-xs font-semibold text-gray-500 uppercase tracking-wide mb-2">Favorites</p>
+                    <div class="space-y-2">
+                        <div class="favourite-item flex items-center p-2 rounded-lg hover:bg-gray-50 transition-colors">
+                            <div class="color-indicator w-2 h-2 rounded-full bg-cyan-300 mr-3"></div>
+                            <p class="title text-sm text-text-primary truncate">Recruiting Weekly</p>
+                        </div>
+                    </div>
+                    <div class="space-y-2">
+                        <div class="favourite-item flex items-center p-2 rounded-lg hover:bg-gray-50 transition-colors">
+                            <div class="color-indicator w-2 h-2 rounded-full bg-pink-500 mr-3"></div>
+                            <p class="title text-sm text-text-primary truncate">Website Launch</p>
+                        </div>
+                    </div>
+                    <div class="space-y-2">
+                        <div class="favourite-item flex items-center p-2 rounded-lg hover:bg-gray-50 transition-colors">
+                            <div class="color-indicator w-2 h-2 rounded-full bg-violet-600 mr-3"></div>
+                            <p class="title text-sm text-text-primary truncate">Rebranding Video</p>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </div>
+        <!-- Right Side -->
+        <div class="right-side w-full p-5 transition-all duration-300 ease-in-out bg-bg-primary">
+            <div class="main-header flex items-center w-full justify-between mb-5 mt-3">
+                <div class="project-container flex items-center">
+                    <img src="./assets/menu-bar.png" alt="" class="project-icon w-8 h-8 mr-3">
+                    <div class="project-name-container h-8 flex flex-col justify-center">
+                        <p class="project-name text-2xl m-0 font-bold text-text-primary">My Project</p>
+                        <div class="status m-0 text-[10px] flex items-center">
+                            <div class="color-box w-[8px] h-[8px] bg-green-600 mr-1 rounded-sm"></div>On track
+                        </div>
+                    </div>
+                </div>
+                <div class="header-controls flex justify-end items-center">
+                    <div class="avatar-group mr-5 flex">
+                        <img src="./assets/avatar.png" alt="" class="avatar">
+                        <img src="./assets/avatar.png" alt="" class="avatar">
+                        <img src="./assets/avatar.png" alt="" class="avatar">
+                        <img src="./assets/avatar.png" alt="" class="avatar">
+                    </div>
+                    <button class="share-btn h-7 p-2 mr-3 rounded-lg border-solid border-[rgba(128,128,128,0.348)] cursor-pointer flex items-center">
+                        <img src="./assets/share.png" alt="">Share
+                    </button>
+                    <div class="search h-7 p-2 mr-3 rounded-lg border-solid border-[rgba(128,128,128,0.348)] cursor-pointer flex items-center text-black">
+                        <img src="./assets/search-icon.png" alt="">
+                        <input type="text" placeholder="Search" />
+                    </div>
+                    <button class="add-btn h-7 w-7 mr-3 rounded-lg border-none bg-orange-400 text-2xl text-white cursor-pointer flex items-center justify-center pb-1">+</button>
+                    <img src="./assets/avatar.png" alt="" class="user-avatar h-7 w-7 bg-orange-400 rounded-[50%] cursor-pointer">
+                </div>
+            </div>
+            <div class="content">
+                <!-- Filter-Bar -->
+                <div class="filter-bar flex justify-between items-center bg-[rgba(128,128,128,0.118)] rounded-lg mb-3 px-2 py-3 text-xs text-text-primary">
+                    <p class="updated ml-4">Created Yesterday</p>
+                    <div class="action-group flex items-center">
+                        <button class="icon-btn cursor-pointer" id="allTasksBtn">
+                            <img src="./assets/checklist.png" alt="">All Tasks
+                        </button>
+                        <button class="icon-btn cursor-pointer">
+                            <img src="./assets/filter.png" alt="">Filter
+                        </button>
+                        <button class="icon-btn cursor-pointer">
+                            <img src="./assets/sort.png" alt="" id="sortBtn">Sort
+                        </button>
+                        <button aria-label="Customize" class="icon-btn cursor-pointer">
+                            <img src="./assets/customize.png" alt="">Customize
+                        </button>
+                    </div>
+                </div>
+                <!-- Header Container -->
+                <div class="header flex justify-between gap-2 mb-4">
+                    <h4 class="w-full text-center bg-bg-card p-3 rounded-t-lg shadow-md transition-all duration-200 hover:shadow-lg text-text-primary" id="todo-header">TODO</h4>
+                    <h4 class="w-full text-center bg-bg-card p-3 rounded-t-lg shadow-md transition-all duration-200 hover:shadow-lg text-text-primary" id="in-progress-header">IN-PROGRESS</h4>
+                    <h4 class="w-full text-center bg-bg-card p-3 rounded-t-lg shadow-md transition-all duration-200 hover:shadow-lg text-text-primary" id="in-qa-header">IN-QA</h4>
+                    <h4 class="w-full text-center bg-bg-card p-3 rounded-t-lg shadow-md transition-all duration-200 hover:shadow-lg text-text-primary" id="done-header">DONE</h4>
+                </div>
+                <!-- Filter Modal -->
+                <div id="filterModal" class="fixed inset-0 backdrop-blur-sm bg-black/20 hidden items-center justify-center z-50">
+                    <div class="bg-bg-card p-6 rounded-lg w-80 space-y-4">
+                        <h3 class="text-lg font-bold mb-2 text-text-primary">Filter Tasks</h3>
+                        <!-- Column Filter -->
+                        <div>
+                            <label class="block text-sm font-semibold mb-1 text-text-primary">By Column</label>
+                            <select id="filterColumn" class="w-full border rounded px-2 py-1 bg-bg-secondary border-border-color text-text-primary">
+                                <option value="">All</option>
+                                <option value="todo">TODO</option>
+                                <option value="in-progress">IN-PROGRESS</option>
+                                <option value="in-qa">IN-QA</option>
+                                <option value="done">DONE</option>
+                            </select>
+                        </div>
+                        <!-- Priority Filter -->
+                        <div>
+                            <label class="block text-sm font-semibold mb-1 text-text-primary">By Priority</label>
+                            <select id="filterPriority" class="w-full border rounded px-2 py-1 bg-bg-secondary border-border-color text-text-primary">
+                                <option value="">All</option>
+                                <option value="Low">Low</option>
+                                <option value="Medium">Medium</option>
+                                <option value="High">High</option>
+                            </select>
+                        </div>
+                        <!-- Status Filter -->
+                        <div>
+                            <label class="block text-sm font-semibold mb-1 text-text-primary">By Status</label>
+                            <select id="filterStatus" class="w-full border rounded px-2 py-1 bg-bg-secondary border-border-color text-text-primary">
+                                <option value="">All</option>
+                                <option value="On Track">On Track</option>
+                                <option value="At Risk">At Risk</option>
+                                <option value="Off Track">Off Track</option>
+                            </select>
+                        </div>
+                        <!-- Date Filter -->
+                        <div>
+                            <label class="block text-sm font-semibold mb-1 text-text-primary">By Date</label>
+                            <input type="date" id="filterDate" class="w-full border rounded px-2 py-1 bg-bg-secondary border-border-color text-text-primary" />
+                        </div>
+                        <!-- Buttons -->
+                        <div class="flex justify-end space-x-2 pt-2">
+                            <button id="applyFilterBtn" class="px-4 py-1 bg-orange-400 text-white rounded">Apply</button>
+                            <button id="clearFilterBtn" class="px-4 py-1 bg-gray-300 rounded">Clear</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Sort Modal -->
+                <div id="sortModal" class="fixed inset-0 bg-black/20 backdrop-blur-sm hidden items-center justify-center z-50">
+                    <div class="bg-bg-card p-6 rounded-lg w-72 space-y-4">
+                        <h3 class="text-lg font-bold mb-2 text-text-primary">Sort Tasks</h3>
+                        <!-- Field -->
+                        <div>
+                            <label class="block text-sm font-semibold mb-1 text-text-primary">Sort By</label>
+                            <select id="sortField" class="w-full border rounded px-2 py-1 bg-bg-secondary border-border-color text-text-primary">
+                                <option value="date">Created Date</option>
+                                <option value="priority">Priority</option>
+                                <option value="status">Status</option>
+                                <option value="title">Title</option>
+                            </select>
+                        </div>
+                        <!-- Direction -->
+                        <div>
+                            <label class="block text-sm font-semibold mb-1 text-text-primary">Direction</label>
+                            <select id="sortDir" class="w-full border rounded px-2 py-1 bg-bg-secondary border-border-color text-text-primary">
+                                <option value="asc">Ascending</option>
+                                <option value="desc">Descending</option>
+                            </select>
+                        </div>
+                        <!-- Buttons -->
+                        <div class="flex justify-end space-x-2 pt-2">
+                            <button id="applySortBtn" class="px-4 py-1 bg-orange-400 text-white rounded cursor-pointer">Apply</button>
+                            <button id="clearSortBtn" class="px-4 py-1 bg-gray-300 rounded cursor-pointer">Clear</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Customize modal -->
+                <div id="customizeModal" class="fixed inset-0 backdrop-blur-sm bg-black/20 hidden flex items-center justify-center z-50">
+                    <div class="bg-bg-card p-6 rounded-lg w-80 space-y-4 mx-4">
+                        <div class="flex justify-between items-center mb-2">
+                            <h3 class="text-lg font-bold text-text-primary">Customize Appearance</h3>
+                            <button id="closeCustomizeModal" class="text-text-secondary hover:text-gray-700 text-xl cursor-pointer">×</button>
+                        </div>
+                        <div class="space-y-4">
+                            <div>
+                                <label class="block text-sm font-semibold mb-1 text-text-primary">Theme Settings</label>
+                                <div class="flex items-center gap-3">
+                                    <label class="switch">
+                                        <input type="checkbox" id="darkModeToggle" />
+                                        <span class="slider"></span>
+                                    </label>
+                                    <span class="text-sm text-text-primary">Dark Mode</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex justify-end space-x-2 pt-2">
+                            <button id="resetBtn" class="px-4 py-1 bg-orange-400 text-white rounded transition-colors cursor-pointer">Reset to Default</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Drag-Drop Container -->
+                <div class="drag-drop-container flex gap-4 bg-bg-primary p-4 rounded-b-lg">
+                    <!-- Columns -->
+                    <div class="col3 flex-1 min-h-[400px] bg-gray-50/50 border-2 border-dashed border-border-color rounded-b-lg p-2 transition-colors" id="todo" ondrop="drop(event)" ondragover="allowdrop(event)" ondragleave="handleDragLeave(event)">
+                        <div class="add-task-btn flex justify-start items-center bg-stone-200 rounded-md min-h-[70px] shadow-sm transition-all duration-200 hover:shadow-md hover:-translate-y-0.5 m-2">
+                            <img src="./assets/add.png" alt="" class="w-4 ml-4 mr-2 cursor-pointer">
+                            <button class="cursor-pointer font-bold text-sm text-text-primary">Add Task</button>
+                        </div>
+                    </div>
+                    <!-- Empty Columns -->
+                    <div class="col3 flex-1 min-h-[400px] bg-gray-50/50 border-2 border-dashed border-border-color rounded-b-lg p-2 transition-colors" id="in-progress" ondrop="drop(event)" ondragover="allowdrop(event)" ondragleave="handleDragLeave(event)">
+                        <div class="add-task-btn flex justify-start items-center bg-stone-200 rounded-md min-h-[70px] shadow-sm transition-all duration-200 hover:shadow-md hover:-translate-y-0.5 m-2">
+                            <img src="./assets/add.png" alt="" class="w-4 ml-4 mr-2 cursor-pointer">
+                            <button class="cursor-pointer font-bold text-sm text-text-primary">Add Task</button>
+                        </div>
+                    </div>
+                    <div class="col3 flex-1 min-h-[400px] bg-gray-50/50 border-2 border-dashed border-border-color rounded-b-lg p-2 transition-colors" id="in-qa" ondrop="drop(event)" ondragover="allowdrop(event)" ondragleave="handleDragLeave(event)">
+                        <div class="add-task-btn flex justify-start items-center bg-stone-200 rounded-md min-h-[70px] shadow-sm transition-all duration-200 hover:shadow-md hover:-translate-y-0.5 m-2">
+                            <img src="./assets/add.png" alt="" class="w-4 ml-4 mr-2 cursor-pointer">
+                            <button class="cursor-pointer font-bold text-sm text-text-primary">Add Task</button>
+                        </div>
+                    </div>
+                    <div class="col3 flex-1 min-h-[400px] bg-gray-50/50 border-2 border-dashed border-border-color rounded-b-lg p-2 transition-colors" id="done" ondrop="drop(event)" ondragover="allowdrop(event)" ondragleave="handleDragLeave(event)">
+                        <div class="add-task-btn flex justify-start items-center bg-stone-200 rounded-md min-h-[70px] shadow-sm transition-all duration-200 hover:shadow-md hover:-translate-y-0.5 m-2">
+                            <img src="./assets/add.png" alt="" class="w-4 ml-4 mr-2 cursor-pointer">
+                            <button class="cursor-pointer font-bold text-sm text-text-primary">Add Task</button>
+                        </div>
+                    </div>
+                    <!-- Add Task Modal -->
+                    <div id="taskModal" class="fixed inset-0 backdrop-blur-sm bg-black/20 hidden flex items-center justify-center z-50">
+                        <div class="bg-bg-card p-6 rounded-lg w-80 space-y-4 mx-4">
+                            <div class="flex justify-between items-center mb-2">
+                                <h3 class="text-lg font-bold text-text-primary">Create New Task</h3>
+                                <button id="closeTaskModal" class="text-text-secondary hover:text-gray-700 text-xl">×</button>
+                            </div>
+                            <form id="taskForm">
+                                <div class="space-y-4">
+                                    <div>
+                                        <label class="block text-sm font-medium mb-1 text-text-primary">Title</label>
+                                        <input type="text" id="taskTitle" required class="w-full p-2 border rounded bg-bg-secondary border-border-color text-text-primary">
+                                    </div>
+                                    <div>
+                                        <label class="block text-sm font-medium mb-1 text-text-primary">Priority</label>
+                                        <select id="taskPriority" class="w-full p-2 border rounded bg-bg-secondary border-border-color text-text-primary">
+                                            <option value="Low">Low</option>
+                                            <option value="Medium">Medium</option>
+                                            <option value="High">High</option>
+                                        </select>
+                                    </div>
+                                    <div>
+                                        <label class="block text-sm font-medium mb-1 text-text-primary">Status</label>
+                                        <select id="taskStatus" class="w-full p-2 border rounded bg-bg-secondary border-border-color text-text-primary">
+                                            <option value="On Track">On Track</option>
+                                            <option value="At Risk">At Risk</option>
+                                            <option value="Off Track">Off Track</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="flex justify-end space-x-2 pt-4">
+                                    <button type="button" id="cancelTaskBtn" class="px-4 py-2 bg-gray-300 rounded">Cancel</button>
+                                    <button type="submit" class="px-4 py-2 bg-orange-400 text-white rounded">Create Task</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <!-- 1) OPTIONS MODAL -->
+                    <div id="optionsModal" class="fixed inset-0 bg-black/30 backdrop-blur-sm hidden items-center justify-center z-50">
+                        <div class="bg-bg-card rounded-lg p-6 w-64">
+                            <h3 class="text-lg font-bold mb-4 text-text-primary">Task Options</h3>
+                            <button id="optEditBtn" class="w-full py-2 mb-2 bg-orange-400 text-black font-bold rounded">Edit Task</button>
+                            <button id="optDeleteBtn" class="w-full py-2 mb-2 bg-yellow-300 text-black font-bold rounded">Delete Task</button>
+                            <button id="optCancelBtn" class="mt-2 w-full py-2 bg-gray-300 rounded">Cancel</button>
+                        </div>
+                    </div>
+                    <!-- 2) EDIT MODAL -->
+                    <div id="editModal" class="fixed inset-0 bg-black/30 backdrop-blur-sm hidden items-center justify-center z-50">
+                        <div class="bg-bg-card rounded-lg p-6 w-80">
+                            <h3 class="text-lg font-bold mb-4 text-text-primary">Edit Task</h3>
+                            <label class="block mb-2">
+                                <span class="text-sm font-medium text-text-primary">Title</span>
+                                <input id="modalTitle" type="text" class="mt-1 block w-full border rounded px-2 py-1 bg-bg-secondary border-border-color text-text-primary" />
+                            </label>
+                            <label class="block mb-2">
+                                <span class="text-sm font-medium text-text-primary">Priority</span>
+                                <select id="modalPriority" class="mt-1 block w-full border rounded px-2 py-1 bg-bg-secondary border-border-color text-text-primary">
+                                    <option>Low</option>
+                                    <option>Medium</option>
+                                    <option>High</option>
+                                </select>
+                            </label>
+                            <label class="block mb-4">
+                                <span class="text-sm font-medium text-text-primary">Status</span>
+                                <select id="modalStatus" class="mt-1 block w-full border rounded px-2 py-1 bg-bg-secondary border-border-color text-text-primary">
+                                    <option>On Track</option>
+                                    <option>At Risk</option>
+                                    <option>Off Track</option>
+                                </select>
+                            </label>
+                            <div class="flex justify-end space-x-2">
+                                <button id="editCancelBtn" class="px-4 py-2 bg-gray-300 rounded">Cancel</button>
+                                <button id="editSaveBtn" class="px-4 py-2 bg-blue-500 text-white rounded">Save</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 3) CONFIRM MODAL -->
+                    <div id="confirmModal" class="fixed inset-0 bg-black/30 backdrop-blur-sm hidden items-center justify-center z-50">
+                        <div class="bg-bg-card rounded-lg p-6 w-64">
+                            <h3 class="text-lg font-bold mb-4 text-text-primary">Confirm Delete</h3>
+                            <p class="mb-4 text-text-primary">Are you sure you want to delete this task?</p>
+                            <div class="flex justify-end space-x-2">
+                                <button id="confirmNoBtn" class="px-4 py-2 bg-gray-300 rounded">No</button>
+                                <button id="confirmYesBtn" class="px-4 py-2 bg-red-500 text-white rounded">Yes</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="module" src="./scripts/app.js"></script>
+</body>
+
+</html>

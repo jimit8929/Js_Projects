@@ -1,0 +1,298 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Light mode default variables */
+:root {
+    --text-primary: #1f2937;
+    --text-secondary: #6b7280;
+    --bg-primary: #ffffff;
+    --bg-secondary: #f3f4f6;
+    --bg-card: #ffffff;
+    --border-color: #e5e7eb;
+    --share-bg: rgba(147, 197, 253, 0.1);
+    --search-bg: rgba(147, 197, 253, 0.1);
+    --active-tab-color: rgb(68, 23, 173);
+    --slider-bg: #ccc;
+    --slider-checked-bg: black;
+    --filter-bar-bg: rgba(128, 128, 128, 0.118);
+    --column-bg: rgba(249, 250, 251, 0.5);
+    --icon-filter: none;
+}
+
+/* Dark mode variables */
+.dark {
+    --text-primary: #e5e7eb; /* Softer white for readability */
+    --text-secondary: #9ca3af;
+    --bg-primary: #0f172a; /* Slightly lighter dark background */
+    --bg-secondary: #1e293b;
+    --bg-card: #293548;
+    --border-color: #475569;
+    --share-bg: rgba(59, 130, 246, 0.15); /* More visible background */
+    --search-bg: rgba(59, 130, 246, 0.15);
+    --active-tab-color: #60a5fa; /* Bright blue for active elements */
+    --slider-bg: #475569;
+    --slider-checked-bg: #3b82f6; /* Vibrant toggle color */
+    --filter-bar-bg: rgba(30, 41, 59, 0.5);
+    --column-bg: rgba(30, 41, 59, 0.7);
+    --icon-filter: invert(0.8); /* Adjusted icon brightness */
+}
+/* Custom classes using variables */
+.bg-bg-primary { background-color: var(--bg-primary); }
+.bg-bg-secondary { background-color: var(--bg-secondary); }
+.bg-bg-card { background-color: var(--bg-card); }
+.text-text-primary { color: var(--text-primary); }
+.text-text-secondary { color: var(--text-secondary); }
+.border-border-color { border-color: var(--border-color); }
+
+/* Animations (unchanged) */
+@keyframes dropAnimation {
+    0% { transform: translateY(-10px); opacity: 0.8; }
+    100% { transform: translateY(0); opacity: 1; }
+}
+
+.task:active {
+    cursor: grabbing;
+}
+
+.col3.dragover {
+    background: rgba(147, 197, 253, 0.1);
+    transition: background 0.2s ease;
+}
+
+.col3 {
+    background-color: var(--column-bg);
+}
+
+/* Avatar styles */
+.avatar {
+    height: 28px;
+    width: 28px;
+    background-color: hsl(23, 100%, 59%);
+    border-radius: 50%;
+    border: 2px solid var(--border-color); /* Adaptive border */
+    cursor: pointer;
+    z-index: 1;
+    position: relative;
+    margin-right: -8px;
+}
+
+.avatar-group .avatar:hover {
+    z-index: 2;
+    box-shadow: 0 0 5px rgba(128, 128, 128, 0.552);
+}
+
+/* Header controls */
+.header-controls .share-btn img {
+    width: 12px;
+    opacity: 70%;
+    margin-right: 4px;
+    filter: var(--icon-filter);
+}
+
+.header-controls .search img {
+    width: 12px;
+    opacity: 70%;
+    margin-right: 4px;
+    filter: var(--icon-filter);
+}
+
+.header-controls .search {
+    background-color: var(--search-bg); /* Adaptive background */
+}
+
+.header-controls .share-btn {
+    background-color: var(--share-bg); /* Adaptive background */
+}
+
+.header-controls .search input {
+    border: none;
+    outline: none;
+}
+
+/* Tab bar */
+.tab-bar .tab {
+    padding: 18px;
+    margin: 0 4px;
+    cursor: pointer;
+}
+
+.tab-bar .tab.active {
+    color: var(--active-tab-color); /* Adaptive color */
+    font-weight: 700;
+    border-bottom: 1px solid var(--active-tab-color);
+}
+
+/* Filter bar */
+.filter-bar .action-group .icon-btn {
+    margin-right: 26px;
+    padding: 8px;
+    display: flex;
+    align-items: center;
+}
+
+.filter-bar .action-group .icon-btn img {
+    width: 16px;
+    height: 16px;
+    margin-right: 8px;
+    filter: var(--icon-filter); /* Adaptive icon color */
+}
+
+.filter-bar {
+    background-color: var(--filter-bar-bg); /* Adaptive background */
+}
+
+/* Sidebar functionality (unchanged) */
+.sidebar {
+    width: 240px;
+    transition: width 0.3s ease-out linear;
+    overflow: hidden;
+}
+
+.sidebar.collapsed {
+    width: 64px;
+}
+
+.sidebar.collapsed .logo-container,
+.sidebar.collapsed .side-menu {
+    display: none;
+}
+
+.sidebar.collapsed .logo-menu-container {
+    justify-content: flex-start;
+    align-items: center;
+    margin-top: 22px;
+}
+
+#toggleIcon {
+    width: 1.25rem;
+    height: 1.25rem;
+    object-fit: contain;
+}
+
+/* Hide/show for modals (unchanged) */
+#optionsModal,
+#editModal,
+#confirmModal {
+    display: none;
+}
+
+#optionsModal.show,
+#editModal.show,
+#confirmModal.show {
+    display: flex;
+}
+
+#filterModal {
+    display: none;
+}
+
+#filterModal.flex {
+    display: flex;
+}
+
+#sortModal {
+    display: none;
+}
+
+#sortModal.show {
+    display: flex;
+}
+
+/* Dark mode toggle switch */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 36px;
+    height: 20px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--slider-bg); /* Adaptive background */
+    transition: 0.4s;
+    border-radius: 34px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 14px;
+    width: 14px;
+    left: 3px;
+    bottom: 3px;
+    background-color: white;
+    transition: 0.4s;
+    border-radius: 50%;
+}
+
+input:checked + .slider {
+    background-color: black; /* Adaptive checked color */
+}
+
+input:checked + .slider:before {
+    transform: translateX(16px);
+}
+
+/* Task enter animation (unchanged) */
+.task-enter {
+    animation: taskEnter 0.3s ease-out;
+}
+
+@keyframes taskEnter {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+
+/* Sidebar hover text color in dark mode */
+/* Sidebar hover text color in dark mode */
+.dark .menu-item:hover *,
+.dark .favourite-item:hover * {
+    color: black;
+}
+
+/* Main header adjustments */
+.dark .status {
+    color: white;
+}
+
+.dark .share-btn {
+    color: white;
+}
+
+/* Search form adjustments */
+.dark .search input {
+    color: white;
+}
+
+.dark .search input::placeholder {
+    color: white;
+}
+
+/* Add Task button adjustments */
+.add-task-btn {
+    background-color: var(--bg-secondary);
+}
+
+.add-task-btn button {
+    color: var(--text-primary);
+}
