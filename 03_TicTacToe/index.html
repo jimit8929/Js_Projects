@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tic Tac Toe</title>
+   
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="./styles/index.css" />
+</head>
+
+<body
+    class="min-h-screen m-0 flex justify-center items-center bg-gradient-to-br from-[#232526] to-[#414345] font-sans text-white">
+    <div
+        class="container mx-auto w-full max-w-xs sm:max-w-md bg-[rgba(34,40,49,0.97)] rounded-2xl shadow-2xl p-8 sm:p-10 mt-8 mb-8 text-center">
+        <h1 class="font-bold tracking-wide text-2xl mb-2 select-none">
+            Tic Tac Toe
+        </h1>
+        <div class="controls flex flex-wrap justify-center items-center gap-3 mb-5">
+            <label for="difficulty" class="font-medium text-base text-gray-300">Difficulty:</label>
+            <select id="difficulty"
+                class="rounded-lg border-none bg-gradient-to-r from-[#43e97b] to-[#38f9d7]  text-white py-1.5 px-3 focus:outline-none focus:bg-[#393e46] shadow-md transition-colors">
+                <option value="easy">Easy</option>
+                <option value="medium">Medium</option>
+                <option value="hard" selected>Hard</option>
+            </select>
+            <button id="restartBtn"
+                class="ml-2 px-5 py-1.5 rounded-lg bg-gradient-to-r from-[#43e97b] to-[#38f9d7]  text-white font-bold shadow-md hover:bg-[#393e46] transition-colors">
+                Restart
+            </button>
+        </div>
+        <div id="board" class="board grid grid-cols-3 grid-rows-3 gap-3 justify-center mx-auto mb-5 sm:gap-4"
+            style="perspective: 400px"></div>
+        <div id="status"
+            class="status text-lg font-semibold min-h-[2rem] mb-1 text-[#43e97b] tracking-wide transition-colors"></div>
+    </div>
+    <script src="./scripts/tictactoe.js"></script>
+</body>
+
+</html>
