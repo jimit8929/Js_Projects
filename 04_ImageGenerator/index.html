@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ImageGenerator</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="./styles/index.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+</head>
+<body class="flex items-center justify-center min-h-screen w-screen">
+
+    <div class = "container w-[980px] p-8 rounded-[32px] relative overflow-hidden">
+        <header class="header flex items-center justify-between">
+            <div class="logo-wrapper flex gap-4 items-center">
+                <div class="logo h-[55px] w-[55px] flex items-center justify-center rounded-2xl text-xl flex-shrink-0 text-[#fff]" style="background: var(--color-gradient);">
+                    <i class="fa-solid fa-wand-magic-sparkles"></i>
+                </div>
+                <h1 class="title text-[1.9rem] font-bold">AI Image Generator</h1>
+            </div>
+
+            <button class="theme-toggle h-[43px] w-[43px] text-base flex items-center justify-center rounded-[50%] cursor-pointer shrink-0 transition-all duration-300 ease-linear" style="background: var(--color-input); border:1px solid var(--color-border);">
+                <i class="fa-solid fa-moon"></i>
+            </button>
+        </header>
+
+        <div class="main-content">
+            <form action="#" class="prompt-form">
+                <div class="prompt-container w-full mb-5 relative">
+                    <textarea class="prompt-input w-full text-base min-h-[120px] px-4 py-5 rounded-2xl" placeholder="Describe your imagination in detail..."  required autofocus></textarea>
+                    <button class="prompt-btn absolute right-4 bottom-4 h-9 w-9 text-[#fff] text-xs rounded-full opacity-80 cursor-pointer" type="button">
+                        <i class="fa-solid fa-dice"></i>
+                    </button>
+                </div>
+                
+
+                <div class="prompt-actions grid gap-4">
+                    <div class="select-wrapper">
+                        <select class="custom-select w-full outline-none h-full appearance-none" id="model-select" required>
+                            <option value="ultra" selected>Stability Ultra (v2beta)</option>
+                            <option value="sd3">Stability SD3</option>
+                            <option value="core">Stability Core</option>
+                        </select>
+                    </div>
+
+                    <div class="select-wrapper">                        
+                        <select class="custom-select w-full outline-none h-full appearance-none" id="count-select" required>
+                            <option value="" selected disabled>Image Count</option>
+                            <option value="1">1 Image</option>
+                            <option value="2">2 Images</option>
+                            <option value="3">3 Images</option>
+                            <option value="4">4 Images</option>
+                        </select>
+                    </div>
+
+
+                      <div class="select-wrapper ">                        
+                        <select class="custom-select w-full outline-none h-full appearance-none"  id="ratio-select" required>
+                            <option value="" selected disabled>Aspect Ratio</option>
+                            <option value="1/1">Square (1:1)</option>
+                            <option value="16/9">Landscape (16:9)</option>
+                            <option value="9/16">Portrait (9:16)</option>
+                        </select>
+                    </div>
+
+
+                    <button class="generate-icon flex gap-4 font-medium items-center justify-center px-3 py-6 text-[#fff] ml-auto" type="submit">
+                        <i class="fa-solid fa-wand-sparkles"></i>
+                        Generate
+                    </button>
+
+                </div>
+
+                <div class="gallery-grid grid gap-4"></div>
+
+            </form>
+        </div>
+    </div>
+
+    <script type="module" src="./scripts/app.js"></script>
+
+</body>
+</html>
